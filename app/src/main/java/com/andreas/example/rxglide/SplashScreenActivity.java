@@ -4,9 +4,11 @@ import com.andreas.example.rxglide.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -20,10 +22,12 @@ import rx.Observer;
  * @see SystemUiHider
  */
 public class SplashScreenActivity extends Activity {
-    private static final String[] URLS = {
+    public static final String[] URLS = {
             "http://dev-netzme.duckdns.org:8888/uploads/alukito/2015/1/26/p1j2vg.png",
             "http://i.forbesimg.com/media/lists/companies/google_416x416.jpg",
-            "http://cdn2.hubspot.net/hub/32387/file-574520000-jpg/images/google-hummingbird-algorithm-updates.jpg"
+            "error url",
+            "http://cdn2.hubspot.net/hub/32387/file-574520000-jpg/images/google-hummingbird-algorithm-updates.jpg",
+
     };
 
     /**
@@ -127,17 +131,21 @@ public class SplashScreenActivity extends Activity {
         warmer.createDownloadAllImage(URLS).subscribe(new Observer() {
             @Override
             public void onCompleted() {
-
+                Log.d("RX", "Completed ");
+                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                Log.d("RX", "Receive on or more errors " + e.getMessage());
+                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
             public void onNext(Object o) {
-
+                Log.d("RX", "Receive " + o.toString());
             }
         });
     }

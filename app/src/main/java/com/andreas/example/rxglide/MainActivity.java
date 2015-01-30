@@ -12,11 +12,6 @@ import rx.Observer;
 public class MainActivity extends ActionBarActivity {
 
     private GridView gridView;
-    private static final String[] URLS = {
-            "http://dev-netzme.duckdns.org:8888/uploads/alukito/2015/1/26/p1j2vg.png",
-            "http://i.forbesimg.com/media/lists/companies/google_416x416.jpg",
-            "http://cdn2.hubspot.net/hub/32387/file-574520000-jpg/images/google-hummingbird-algorithm-updates.jpg"
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +20,7 @@ public class MainActivity extends ActionBarActivity {
 
         gridView = (GridView) findViewById(R.id.gridView);
 
-        gridView.setAdapter(new ImageAdapter(this, URLS));
+        gridView.setAdapter(new ImageAdapter(this, SplashScreenActivity.URLS));
     }
 
 
