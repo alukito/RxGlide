@@ -25,9 +25,7 @@ public class SplashScreenActivity extends Activity {
     public static final String[] URLS = {
             "http://dev-netzme.duckdns.org:8888/uploads/alukito/2015/1/26/p1j2vg.png",
             "http://i.forbesimg.com/media/lists/companies/google_416x416.jpg",
-            "error url",
             "http://cdn2.hubspot.net/hub/32387/file-574520000-jpg/images/google-hummingbird-algorithm-updates.jpg",
-
     };
 
     /**
@@ -138,7 +136,7 @@ public class SplashScreenActivity extends Activity {
 
             @Override
             public void onError(Throwable e) {
-                Log.d("RX", "Receive on or more errors " + e.getMessage());
+                Log.e("RX", "Receive one or more errors " + e.getMessage());
                 Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(intent);
             }

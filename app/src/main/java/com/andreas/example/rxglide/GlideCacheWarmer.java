@@ -11,6 +11,7 @@ import java.io.File;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by andreas on 1/30/15.
@@ -50,6 +51,6 @@ public class GlideCacheWarmer {
                      }
                  });
              }
-         });
+        });
     }
 }
